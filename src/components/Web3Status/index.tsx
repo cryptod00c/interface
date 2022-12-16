@@ -85,6 +85,7 @@ const Web3StatusConnectWrapper = styled.div<{ faded?: boolean }>`
   align-items: center;
   background-color: ${({ theme }) => theme.accentActionSoft};
   border-radius: ${FULL_BORDER_RADIUS}px;
+  box-shadow: 0 3px 1px 0 ${({ theme }) => theme.darkGray};
   border: none;
   padding: 0;
   height: 40px;
@@ -100,6 +101,7 @@ const Web3StatusConnected = styled(Web3StatusGeneric)<{
   pending?: boolean
   isClaimAvailable?: boolean
 }>`
+  box-shadow: 0 2px 1px 0 ${({ theme }) => theme.baseGray};
   background-color: ${({ pending, theme }) => (pending ? theme.accentAction : theme.deprecated_bg1)};
   border: 1px solid ${({ pending, theme }) => (pending ? theme.accentAction : theme.deprecated_bg1)};
   color: ${({ pending, theme }) => (pending ? theme.white : theme.textPrimary)};

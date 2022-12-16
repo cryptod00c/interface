@@ -200,8 +200,8 @@ export const vars = createGlobalTheme(':root', {
     accentTextLightTertiary: 'rgba(255, 255, 255, 0.12)',
     outline: 'rgba(153, 161, 189, 0.24)',
     lightGrayOverlay: '#99A1BD14',
-    accentActiveSoft: '#4c82fb3d',
-    accentActive: '#4C82FB',
+    accentActiveSoft: '#693ac13d',
+    accentActive: '#693ac1',
   },
   border: {
     transculent: '1.5px solid rgba(0, 0, 0, 0.1)',

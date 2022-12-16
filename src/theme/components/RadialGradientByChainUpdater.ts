@@ -7,10 +7,13 @@ import { SupportedChainId } from '../../constants/chains'
 import { darkTheme, lightTheme } from '../colors'
 
 const initialStyles = {
-  width: '200vw',
-  height: '200vh',
-  transform: 'translate(-50vw, -100vh)',
+  width: '100%',
+  height: '100%',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'contain',
+  backgroundPosition: 'bottom center',
 }
+
 const backgroundResetStyles = {
   width: '100vw',
   height: '100vh',
@@ -84,11 +87,9 @@ export default function RadialGradientByChainUpdater(): null {
         backgroundRadialGradientElement.style.background = darkMode ? celoDarkGradient : celoLightGradient
         break
       default:
+        // default is eth mainnet - as new chains are introduced we can introduce variable backgrounds
         setBackground(initialStyles)
-        const defaultLightGradient =
-          'radial-gradient(100% 100% at 50% 0%, rgba(255, 184, 226, 0.51) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF'
-        const defaultDarkGradient = 'linear-gradient(180deg, #202738 0%, #070816 100%)'
-        backgroundRadialGradientElement.style.background = darkMode ? defaultDarkGradient : defaultLightGradient
+        backgroundRadialGradientElement.style.backgroundImage = `url(${process.env.PUBLIC_URL}/backgrounds/galaxy.png)`
     }
   }, [darkMode, chainId, isNftPage])
   return null

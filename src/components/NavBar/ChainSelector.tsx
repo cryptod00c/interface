@@ -105,7 +105,12 @@ export const ChainSelector = ({ leftAlign }: ChainSelectorProps) => {
         ) : (
           <>
             <img src={info.logoUrl} alt={info.label} className={styles.Image} />
-            <Box as="span" className={subhead} display={{ sm: 'none', xxl: 'flex' }} style={{ lineHeight: '20px' }}>
+            <Box
+              as="span"
+              className={subhead}
+              display={{ sm: 'none', xxl: 'flex' }}
+              style={{ lineHeight: '20px', color: 'gray' }}
+            >
               {info.label}
             </Box>
           </>

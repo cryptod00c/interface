@@ -1,7 +1,7 @@
 import { darken } from 'polished'
 import { Check, ChevronDown } from 'react-feather'
 import { Button as RebassButton, ButtonProps as ButtonPropsOriginal } from 'rebass/styled-components'
-import styled, { DefaultTheme, useTheme } from 'styled-components/macro'
+import styled, { DefaultTheme, keyframes, useTheme } from 'styled-components/macro'
 
 import { RowBetween } from '../Row'
 
@@ -50,22 +50,36 @@ export const BaseButton = styled(RebassButton)<
   }
 `
 
+const gradientRotate = keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+`
+
 export const ButtonPrimary = styled(BaseButton)`
-  background-color: ${({ theme }) => theme.accentAction};
+  background-image: linear-gradient(90deg, #0065ff, #6942ef, #6554c0, #008cff, #0065ff, #6942ef);
+  background-size: 400%;
+  background-position: 0% 0%;
   font-size: 20px;
   font-weight: 600;
+  box-shadow: 0 2px 1px 0 ${({ theme }) => theme.white};
   padding: 16px;
   color: ${({ theme }) => theme.accentTextLightPrimary};
   &:focus {
-    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.accentAction)};
-    background-color: ${({ theme }) => darken(0.05, theme.accentAction)};
+    box-shadow: 0 2px 1px 0 ${({ theme }) => theme.backgroundInteractive};
   }
   &:hover {
-    background-color: ${({ theme }) => darken(0.05, theme.accentAction)};
+    animation: ${gradientRotate} 2s infinite;
+    &::before {
+      opacity: 1;
+      animation: gradientRotate 2s infinite;
+    }
   }
   &:active {
-    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.accentAction)};
-    background-color: ${({ theme }) => darken(0.1, theme.accentAction)};
+    box-shadow: 0 2px 1px 0 ${({ theme }) => theme.backgroundInteractive};
   }
   &:disabled {
     background-color: ${({ theme, altDisabledStyle, disabled }) =>
@@ -88,7 +102,8 @@ export const SmallButtonPrimary = styled(ButtonPrimary)`
 
 export const ButtonLight = styled(BaseButton)`
   background-color: ${({ theme }) => theme.accentActionSoft};
-  color: ${({ theme }) => theme.accentAction};
+  color: ${({ theme }) => theme.white};
+  box-shadow: 0 2px 1px 0 ${({ theme }) => theme.black};
   font-size: 20px;
   font-weight: 600;
 

@@ -85,7 +85,7 @@ const CurrencySelect = styled(ButtonGray)<{
   &:before {
     background-size: 100%;
     border-radius: inherit;
-
+    box-shadow: 0 2px 1px 0 ${({ theme }) => theme.black};
     position: absolute;
     top: 0;
     left: 0;

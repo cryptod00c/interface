@@ -17,15 +17,26 @@ import { ExplorerDataType, getExplorerLink } from 'utils/getExplorerLink'
 import { MouseoverTooltip } from '../Tooltip'
 import { ChainConnectivityWarning } from './ChainConnectivityWarning'
 
-const StyledPolling = styled.div`
-  align-items: center;
-  bottom: 0;
+const StyledPollingContainer = styled.div`
+  bottom: 52px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
   color: ${({ theme }) => theme.textTertiary};
-  display: none;
-  padding: 1rem;
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-between;
   position: fixed;
   right: 0;
   transition: 250ms ease color;
+
+  @media screen and (min-width: ${({ theme }) => theme.breakpoint.md}px) {
+    bottom: 0;
+  }
+`
+
+const StyledPolling = styled.div`
+  align-items: center;
+  display: flex;
 
   a {
     color: unset;
@@ -34,11 +45,12 @@ const StyledPolling = styled.div`
     color: unset;
     text-decoration: none;
   }
-
-  @media screen and (min-width: ${({ theme }) => theme.breakpoint.md}px) {
-    display: flex;
-  }
 `
+
+const StyledCredit = styled.div`
+  font-size: 10px;
+`
+
 const StyledPollingBlockNumber = styled(ThemedText.DeprecatedSmall)<{
   breathe: boolean
   hovering: boolean
@@ -159,12 +171,17 @@ export default function Polling() {
   }
 
   return (
-    <RowFixed>
+    <StyledPollingContainer>
+      <StyledCredit>
+        <ThemedText.DeprecatedMain color="black" fontSize="10px">
+          <Trans>Photo: ESA/Hubble & NASA, Z. Levay</Trans>
+        </ThemedText.DeprecatedMain>
+      </StyledCredit>
       <StyledPolling onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
         <ExternalLink href="https://etherscan.io/gastracker">
           {!!priceGwei && (
             <RowFixed style={{ marginRight: '8px' }}>
-              <ThemedText.DeprecatedMain fontSize="11px" mr="8px">
+              <ThemedText.DeprecatedMain color="black" fontSize="11px" mr="8px">
                 <MouseoverTooltip
                   text={
                     <Trans>
@@ -191,7 +208,8 @@ export default function Polling() {
         </StyledPollingBlockNumber>
         <StyledPollingDot warning={warning}>{isMounting && <Spinner warning={warning} />}</StyledPollingDot>{' '}
       </StyledPolling>
+
       {warning && <ChainConnectivityWarning />}
-    </RowFixed>
+    </StyledPollingContainer>
   )
 }

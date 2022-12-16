@@ -66,6 +66,7 @@ const baseMenuItem = style([
     height: 'min',
     width: 'full',
     textAlign: 'center',
+    color: 'white',
   }),
   {
     lineHeight: '24px',

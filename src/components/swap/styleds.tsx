@@ -24,17 +24,23 @@ export const PageWrapper = styled.div`
 
 // Mostly copied from `AppBody` but it was getting too hard to maintain backwards compatibility.
 export const SwapWrapper = styled.main`
+  display: block;
+  border-radius: 12px;
+  background: ${({ theme }) => theme.darkGray};
+  box-shadow: 0px 6px 2px 0px black;
+  transform: translateY(-6px);
   position: relative;
-  background: ${({ theme }) => theme.backgroundSurface};
-  border-radius: 16px;
-  border: 1px solid ${({ theme }) => theme.backgroundOutline};
   padding: 8px;
   z-index: ${Z_INDEX.deprecated_content};
   transition: transform 250ms ease;
+`
 
-  &:hover {
-    border: 1px solid ${({ theme }) => theme.backgroundOutline};
-  }
+export const SwapBox = styled.div`
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
 `
 
 export const ArrowWrapper = styled.div<{ clickable: boolean }>`

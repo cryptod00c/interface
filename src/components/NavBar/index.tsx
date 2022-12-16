@@ -5,7 +5,7 @@ import { chainIdToBackendName } from 'graphql/data/util'
 import { useIsNftPage } from 'hooks/useIsNftPage'
 import { Box } from 'nft/components/Box'
 import { Row } from 'nft/components/Flex'
-import { UniIcon } from 'nft/components/icons'
+import { X7Logo } from 'nft/components/icons'
 import { ReactNode } from 'react'
 import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -13,7 +13,6 @@ import styled from 'styled-components/macro'
 import { Bag } from './Bag'
 import { ChainSelector } from './ChainSelector'
 import { MenuDropdown } from './MenuDropdown'
-import { SearchBar } from './SearchBar'
 import * as styles from './style.css'
 
 const Nav = styled.nav`
@@ -37,7 +36,7 @@ const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) =
       to={href}
       className={isActive ? styles.activeMenuItem : styles.menuItem}
       id={id}
-      style={{ textDecoration: 'none' }}
+      style={{ textDecoration: 'none', color: 'black' }}
       data-testid={dataTestId}
     >
       {children}
@@ -61,18 +60,18 @@ export const PageTabs = () => {
 
   return (
     <>
+      <MenuItem href="/pool" id="pool-nav-link" isActive={isPoolActive}>
+        <Trans>Liquidity</Trans>
+      </MenuItem>
       <MenuItem href="/swap" isActive={pathname.startsWith('/swap')}>
         <Trans>Swap</Trans>
       </MenuItem>
-      <MenuItem href={`/tokens/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/tokens')}>
+      {/* <MenuItem href={`/tokens/${chainName.toLowerCase()}`} isActive={pathname.startsWith('/tokens')}>
         <Trans>Tokens</Trans>
       </MenuItem>
       <MenuItem dataTestId="nft-nav" href="/nfts" isActive={isNftPage}>
         <Trans>NFTs</Trans>
-      </MenuItem>
-      <MenuItem href="/pool" id="pool-nav-link" isActive={isPoolActive}>
-        <Trans>Pool</Trans>
-      </MenuItem>
+      </MenuItem> */}
     </>
   )
 }
@@ -87,10 +86,11 @@ const Navbar = () => {
         <Box display="flex" height="full" flexWrap="nowrap">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
-              <UniIcon
+              <X7Logo
                 width="48"
                 height="48"
                 className={styles.logo}
+                style={{ color: 'black' }}
                 onClick={() => {
                   navigate('/')
                 }}
@@ -105,13 +105,11 @@ const Navbar = () => {
               <PageTabs />
             </Row>
           </Box>
-          <Box className={styles.searchContainer}>
-            <SearchBar />
-          </Box>
+          <Box className={styles.searchContainer}>{/* <SearchBar /> */}</Box>
           <Box className={styles.rightSideContainer}>
             <Row gap="12">
               <Box position="relative" display={{ sm: 'flex', xl: 'none' }}>
-                <SearchBar />
+                {/* <SearchBar /> */}
               </Box>
               <Box display={{ sm: 'none', lg: 'flex' }}>
                 <MenuDropdown />

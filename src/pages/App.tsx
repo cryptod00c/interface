@@ -21,8 +21,7 @@ import { getCLS, getFCP, getFID, getLCP, Metric } from 'web-vitals'
 
 import { useAnalyticsReporter } from '../components/analytics'
 import ErrorBoundary from '../components/ErrorBoundary'
-import { PageTabs } from '../components/NavBar'
-import NavBar from '../components/NavBar'
+import NavBar, { PageTabs } from '../components/NavBar'
 import Polling from '../components/Polling'
 import Popups from '../components/Popups'
 import { useIsExpertMode } from '../state/user/hooks'
@@ -33,7 +32,6 @@ import { RedirectDuplicateTokenIds } from './AddLiquidity/redirects'
 import { RedirectDuplicateTokenIdsV2 } from './AddLiquidityV2/redirects'
 import Earn from './Earn'
 import Manage from './Earn/Manage'
-import Landing from './Landing'
 import MigrateV2 from './MigrateV2'
 import MigrateV2Pair from './MigrateV2/MigrateV2Pair'
 import NotFound from './NotFound'
@@ -86,7 +84,7 @@ const MobileBottomBar = styled.div`
   justify-content: space-between;
   padding: 4px 8px;
   height: ${({ theme }) => theme.mobileBottomBarHeight}px;
-  background: ${({ theme }) => theme.backgroundSurface};
+  background: ${({ theme }) => theme.darkGray};
   border-top: 1px solid ${({ theme }) => theme.backgroundOutline};
 
   @media screen and (min-width: ${({ theme }) => theme.breakpoint.md}px) {
@@ -203,7 +201,7 @@ export default function App() {
           <Suspense fallback={<Loader />}>
             {isLoaded ? (
               <Routes>
-                <Route path="/" element={<Landing />} />
+                <Route path="/" element={<Swap />} />
 
                 <Route path="tokens" element={<Tokens />}>
                   <Route path=":chainName" />

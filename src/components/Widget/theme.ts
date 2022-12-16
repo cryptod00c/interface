@@ -1,7 +1,7 @@
 import { darkTheme, lightTheme } from 'theme/colors'
 
 const fonts = {
-  fontFamily: 'Inter custom',
+  fontFamily: 'SpaceMono custom',
 }
 
 export const LIGHT_THEME = {

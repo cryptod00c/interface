@@ -85,6 +85,12 @@ export const colors = {
   magentaVibrant: '#FC72FF',
   purple300: '#8440F2',
   purple900: '#1C0337',
+
+  // X7 Finance Colors
+  basePurple: '#693ac1',
+  baseGray: '#ababab',
+  darkGray: '#3a3a3a',
+  midnightGray: '#212328',
   // TODO: add all other vibrant variations
   networkEthereum: '#627EEA',
   networkOptimism: '#FF0420',
@@ -100,6 +106,10 @@ type Theme = typeof darkTheme
 const commonTheme = {
   white: colors.white,
   black: colors.black,
+
+  baseGray: colors.baseGray,
+  darkGray: colors.darkGray,
+  midnightGray: colors.midnightGray,
 
   chain_1: colors.networkEthereum,
   chain_3: colors.yellow400,
@@ -125,10 +135,10 @@ export const darkTheme = {
 
   userThemeColor: colors.magentaVibrant,
 
-  background: colors.gray800,
+  background: colors.white,
   backgroundBackdrop: colors.gray950,
   backgroundSurface: colors.gray900,
-  backgroundModule: colors.gray800,
+  backgroundModule: colors.gray950,
   backgroundInteractive: colors.gray700,
   backgroundFloating: opacify(12, colors.black),
   backgroundOutline: colors.gray750,
@@ -139,15 +149,15 @@ export const darkTheme = {
   textSecondary: colors.gray300,
   textTertiary: colors.gray500,
 
-  accentAction: colors.blue400,
-  accentActive: colors.blue400,
+  accentAction: colors.basePurple,
+  accentActive: colors.basePurple,
   accentSuccess: colors.green200,
   accentWarning: colors.gold200,
   accentFailure: colors.red300,
   accentCritical: colors.red300,
 
-  accentActionSoft: opacify(24, colors.blue400),
-  accentActiveSoft: opacify(24, colors.blue400),
+  accentActionSoft: opacify(24, colors.basePurple),
+  accentActiveSoft: opacify(24, colors.basePurple),
   accentSuccessSoft: opacify(24, colors.green400),
   accentWarningSoft: opacify(24, colors.gold200),
   accentFailureSoft: opacify(12, colors.red400),
@@ -163,7 +173,7 @@ export const darkTheme = {
   deepShadow: '12px 16px 24px rgba(0, 0, 0, 0.24), 12px 8px 12px rgba(0, 0, 0, 0.24), 4px 4px 8px rgba(0, 0, 0, 0.32);',
   shallowShadow: '4px 4px 10px rgba(0, 0, 0, 0.24), 2px 2px 4px rgba(0, 0, 0, 0.12), 1px 2px 2px rgba(0, 0, 0, 0.12);',
 
-  networkDefaultShadow: `0px 40px 120px ${opacify(16, colors.blue400)}`,
+  networkDefaultShadow: `0px 40px 120px ${opacify(16, colors.basePurple)}`,
 
   stateOverlayHover: opacify(8, colors.gray300),
   stateOverlayPressed: opacify(24, colors.gray200),
@@ -192,14 +202,14 @@ export const lightTheme: Theme = {
   textTertiary: colors.gray300,
 
   accentAction: colors.pink400,
-  accentActive: colors.blue400,
+  accentActive: colors.basePurple,
   accentSuccess: colors.green300,
   accentWarning: colors.gold200,
   accentFailure: colors.red400,
   accentCritical: colors.red400,
 
   accentActionSoft: opacify(24, colors.pink400),
-  accentActiveSoft: opacify(24, colors.blue400),
+  accentActiveSoft: opacify(24, colors.basePurple),
   accentSuccessSoft: opacify(24, colors.green400),
   accentWarningSoft: opacify(24, colors.gold200),
   accentFailureSoft: opacify(12, colors.red400),
